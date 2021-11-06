@@ -64,7 +64,7 @@ public class Search {
 		
 		PriorityQueue<Node> pq = new PriorityQueue<Node>((a, b) -> (a.g + a.h) - (b.g + b.h));
 		int h = this.Manhattan(initial) ;
-		Node node = new Node(0,h,initial,x,y);
+		Node node = new Node(0,h,initial,x,y,null);
 		pq.add(node) ;
 		
 		while(! pq.isEmpty())
@@ -97,7 +97,7 @@ public class Search {
 					matrix[row][col] = 0 ;
 					
 					h = this.Manhattan(matrix) ;
-					Node newNode = new Node(parent.g + 1,h,matrix,row,col);
+					Node newNode = new Node(parent.g + 1,h,matrix,row,col,parent);
 					pq.add(newNode) ;
 				}
 			}
